@@ -1,0 +1,36 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/raw/iris.csv
+      hash: md5
+      md5: 21d441a28bce4417276097df955afc50
+      size: 2928
+    - path: src/train.py
+      hash: md5
+      md5: 7d86be2239edebf58455f390ce863b21
+      size: 3659
+    params:
+      params.yaml:
+        train.max_depth: 5
+        train.n_estimators: 100
+        train.random_state: 42
+        train.test_size: 0.2
+    outs:
+    - path: models/KNN.pkl
+      hash: md5
+      md5: c837dca779c8669df01cc82d4f37de71
+      size: 11622
+    - path: models/RandomForest.pkl
+      hash: md5
+      md5: 757546e4df7750ed2144159ce68f44be
+      size: 163457
+    - path: reports/KNN_metrics.json
+      hash: md5
+      md5: aed4c6216573de4906939205915c8bca
+      size: 90
+    - path: reports/RandomForest_metrics.json
+      hash: md5
+      md5: f7dcf40e624ba322e979eefca1362062
+      size: 150
